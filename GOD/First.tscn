@@ -1,3 +1,42 @@
-[gd_scene format=3 uid="uid://q51r3apcajxm"]
+[gd_scene load_steps=3 format=3 uid="uid://q51r3apcajxm"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://db4jyx124anwg" path="res://1083.jpg" id="1_058pc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7u77l"]
+size = Vector2(16, 16)
+
+[node name="World" type="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7u77l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="1083" type="Sprite2D" parent="."]
+position = Vector2(608.989, 324)
+scale = Vector2(0.208026, 0.208026)
+texture = ExtResource("1_058pc")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 128.0
+offset_right = 316.0
+offset_bottom = 192.0
+scale = Vector2(1.01533, 1.01533)
+text = "Play"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 316.0
+offset_bottom = 320.0
+scale = Vector2(1.01533, 1.01533)
+text = "Select Character"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 384.0
+offset_right = 316.0
+offset_bottom = 448.0
+scale = Vector2(1.01533, 1.01533)
+text = "Exit"
