@@ -14,3 +14,11 @@ func _process(delta):
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://World.tscn");
 	
+
+
+func _on_button_2_pressed()->void:
+	get_tree().change_scene_to_file("res://Character_Selection.tscn")
+
+
+func _on_button_3_pressed()->void:
+	get_tree().quit();
