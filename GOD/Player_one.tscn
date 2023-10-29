@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://ber38ge0qeacj"]
+
+[ext_resource type="Texture2D" uid="uid://cu3pttysi65j7" path="res://Resources/Animations/Player/PlayerOne/amos-04.png" id="1_6uqvu"]
+[ext_resource type="Texture2D" uid="uid://c74mmx6odk4u0" path="res://Resources/Animations/Player/PlayerOne/nike-air-jordan-logo-D11F29D729-seeklogo.com.png" id="2_j8gfx"]
+[ext_resource type="Texture2D" uid="uid://dokhoxpujc35e" path="res://Resources/Animations/Player/PlayerOne/pngegg.png" id="3_wrk3c"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+position = Vector2(9.53674e-07, 9.53674e-07)
+rotation = 1.07198
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(-7.02521, -3.82707)
+rest = Transform2D(1, 0, 0, 1, -1.29369e-06, 3.81248e-07)
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Bone2D"]
+position = Vector2(-3.19812, -10.8523)
+rotation = -1.06826
+scale = Vector2(0.03494, 0.0349399)
+texture = ExtResource("1_6uqvu")
+
+[node name="LeftLeg" type="Bone2D" parent="Skeleton2D/Bone2D"]
+position = Vector2(34.4971, 37.0128)
+rotation = -0.785398
+scale = Vector2(1, 1)
+rest = Transform2D(0.707107, -0.707107, 0.707107, 0.707107, 26.843, 51.0632)
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Bone2D/LeftLeg"]
+position = Vector2(-17.6089, -3.15088)
+rotation = -6.28319
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_j8gfx")
+
+[node name="RightLeg" type="Bone2D" parent="Skeleton2D/Bone2D"]
+position = Vector2(42.7802, 5.08493)
+rotation = -0.782292
+rest = Transform2D(0.7093, -0.704907, 0.704907, 0.7093, 61.2866, -12.1636)
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Bone2D/RightLeg"]
+position = Vector2(-15.3333, 4.5705)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_j8gfx")
+
+[node name="Bone2D3" type="Bone2D" parent="Skeleton2D/Bone2D"]
+position = Vector2(-29.9876, 38.3242)
+scale = Vector2(1, 1)
+rest = Transform2D(1, 0, 0, 1, -38.3242, -29.9876)
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Bone2D/Bone2D3"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_wrk3c")
