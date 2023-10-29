@@ -33,5 +33,12 @@ offset_right = 896.0
 offset_bottom = 576.0
 text = "Confirm"
 
+[node name="MenuButton" type="MenuButton" parent="."]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 320.0
+offset_bottom = 128.0
+text = "Character 1"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
