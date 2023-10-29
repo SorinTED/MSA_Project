@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://q51r3apcajxm"]
+[gd_scene load_steps=5 format=3 uid="uid://q51r3apcajxm"]
 
 [ext_resource type="Texture2D" uid="uid://db4jyx124anwg" path="res://1083.jpg" id="1_058pc"]
+[ext_resource type="Script" path="res://First.gd" id="1_n52dg"]
+[ext_resource type="Texture2D" uid="uid://c4q1jsk4xkf6y" path="res://amo-04.png" id="3_x4jsx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7u77l"]
 size = Vector2(16, 16)
 
-[node name="World" type="Node2D"]
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_n52dg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7u77l")
@@ -40,3 +43,10 @@ offset_right = 316.0
 offset_bottom = 448.0
 scale = Vector2(1.01533, 1.01533)
 text = "Exit"
+
+[node name="Amo-04" type="Sprite2D" parent="."]
+position = Vector2(744, 376)
+scale = Vector2(0.0789474, 0.0789474)
+texture = ExtResource("3_x4jsx")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
