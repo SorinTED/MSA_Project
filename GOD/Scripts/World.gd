@@ -21,7 +21,7 @@ func _on_button1_pressed()->void:
 
 
 func _on_button2_pressed()->void:
-	pass
+	get_tree().change_scene_to_file("res://Scenes/Map.tscn");
 
 
 func _on_button3_pressed()->void:

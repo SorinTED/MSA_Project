@@ -1,12 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://q51r3apcajxm"]
 
-[ext_resource type="Texture2D" uid="uid://db4jyx124anwg" path="res://1083.jpg" id="1_058pc"]
-[ext_resource type="Script" path="res://Scripts/First.gd" id="1_n52dg"]
 [ext_resource type="Script" path="res://Scripts/First.gd" id="1_kyjhm"]
-[ext_resource type="Texture2D" uid="uid://c4q1jsk4xkf6y" path="res://amo-04.png" id="3_x4jsx"]
-[ext_resource type="Texture2D" uid="uid://b4r6oncsffc35" path="res://text-1699966913471.png" id="5_2ji68"]
 [ext_resource type="Texture2D" uid="uid://db4jyx124anwg" path="res://1083.jpg" id="2_8ctdp"]
 [ext_resource type="Texture2D" uid="uid://c4q1jsk4xkf6y" path="res://amo-04.png" id="3_nq5mk"]
+[ext_resource type="Texture2D" uid="uid://b4r6oncsffc35" path="res://text-1699966913471.png" id="5_2ji68"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7u77l"]
 size = Vector2(16, 16)

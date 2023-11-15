@@ -1,7 +1,5 @@
 [gd_scene load_steps=11 format=3 uid="uid://fbqj64rsof5p"]
 
-[ext_resource type="Texture2D" uid="uid://db4jyx124anwg" path="res://1083.jpg" id="1_ahi4t"]
-[ext_resource type="Script" path="res://World.gd" id="1_rm4kp"]
 [ext_resource type="Script" path="res://Scripts/World.gd" id="1_q5m4e"]
 [ext_resource type="Texture2D" uid="uid://db4jyx124anwg" path="res://1083.jpg" id="2_uj7h0"]
 [ext_resource type="PackedScene" uid="uid://ds2s6of2q65c1" path="res://MapItem.tscn" id="3_tarpr"]
@@ -106,6 +104,11 @@ position = Vector2(578, 323)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/MapSelectorGridContainer/MapItem/Button" to="." method="_on_button1_pressed"]
+[connection signal="pressed" from="Control/MapSelectorGridContainer/MapItem2/Button" to="." method="_on_button2_pressed"]
+[connection signal="pressed" from="Control/MapSelectorGridContainer/MapItem3/Button" to="." method="_on_button3_pressed"]
+[connection signal="pressed" from="Control/MapSelectorGridContainer/MapItem4/Button" to="." method="_on_button4_pressed"]
+[connection signal="pressed" from="Control/MapSelectorGridContainer/MapItem5/Button" to="." method="_on_button5_pressed"]
+[connection signal="pressed" from="Control/MapSelectorGridContainer/MapItem6/Button" to="." method="_on_button6_pressed"]
 
 [editable path="Control/MapSelectorGridContainer/MapItem"]
 [editable path="Control/MapSelectorGridContainer/MapItem2"]
