@@ -33,13 +33,13 @@ func _process(delta):
 
 
 func _on_button_pressed()->void:
-	get_tree().change_scene_to_file("res://First.tscn");
+	get_tree().change_scene_to_file("res://Scenes/First.tscn");
 
 
 func _on_button_2_pressed()->void:
 	if(selected_character != 0):
 		GameVariables.selected_character = selected_character;
-	get_tree().change_scene_to_file("res://First.tscn");
+	get_tree().change_scene_to_file("res://Scenes/First.tscn");
 
 
 func _on_button_3_pressed()->void:

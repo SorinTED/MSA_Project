@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://Character_Selection.gd" id="1_a7b8m"]
 [ext_resource type="Texture2D" uid="uid://db4jyx124anwg" path="res://1083.jpg" id="1_jlead"]
+[ext_resource type="Script" path="res://Scripts/Character_Selection.gd" id="1_8bv3v"]
+[ext_resource type="Texture2D" uid="uid://db4jyx124anwg" path="res://1083.jpg" id="2_30ujs"]
 [ext_resource type="PackedScene" uid="uid://1quu2n6s1xft" path="res://Resources/Scenes/UI/CharacterSelectionItem.tscn" id="3_7pipn"]
 [ext_resource type="Texture2D" uid="uid://w1qh2owpt8xo" path="res://amo-05.png" id="4_2bccg"]
 [ext_resource type="Texture2D" uid="uid://c4q1jsk4xkf6y" path="res://amo-04.png" id="5_neabp"]
@@ -10,7 +12,7 @@
 size = Vector2(16, 16)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_a7b8m")
+script = ExtResource("1_8bv3v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dk88c")
@@ -20,7 +22,7 @@ shape = SubResource("RectangleShape2D_dk88c")
 [node name="1083" type="Sprite2D" parent="."]
 position = Vector2(608.989, 324)
 scale = Vector2(0.208026, 0.208026)
-texture = ExtResource("1_jlead")
+texture = ExtResource("2_30ujs")
 
 [node name="MenuButton" type="MenuButton" parent="."]
 offset_left = 35.0

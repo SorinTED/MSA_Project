@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://clfshwlif3xi4"]
+
+[ext_resource type="Texture2D" uid="uid://db4jyx124anwg" path="res://1083.jpg" id="1_ms3a6"]
+[ext_resource type="PackedScene" uid="uid://baymei6y1va7t" path="res://Scenes/Player.tscn" id="2_x6uga"]
+[ext_resource type="PackedScene" uid="uid://bx7bohr6kor72" path="res://Scenes/Enemy_1.tscn" id="3_mlglg"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_etef3"]
+size = Vector2(1000, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ju01c"]
+size = Vector2(283.425, 244.97)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p57hq"]
+size = Vector2(1076.79, 613)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_joarj"]
+size = Vector2(379.567, 264.197)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wl6pu"]
+size = Vector2(784, 66)
+
+[node name="Node2D2" type="Node2D"]
+
+[node name="1083" type="Sprite2D" parent="."]
+position = Vector2(608.989, 324)
+scale = Vector2(0.208026, 0.208026)
+texture = ExtResource("1_ms3a6")
+
+[node name="TileMap" type="TileMap" parent="."]
+collision_animatable = true
+format = 2
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(608.989, 324)
+scale = Vector2(0.208026, 0.208026)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
+position = Vector2(2514.17, 3015.03)
+scale = Vector2(1.73058, 1)
+mesh = SubResource("QuadMesh_etef3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(-2696.72, 288.426)
+shape = SubResource("RectangleShape2D_ju01c")
+
+[node name="Player" parent="." instance=ExtResource("2_x6uga")]
+position = Vector2(632, 448)
+scale = Vector2(0.208026, 0.208026)
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(608.989, 324)
+scale = Vector2(0.208026, 0.208026)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2"]
+position = Vector2(-5273.33, 865.276)
+scale = Vector2(1.73058, 1)
+mesh = SubResource("QuadMesh_etef3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(-1773.76, 866.43)
+shape = SubResource("RectangleShape2D_p57hq")
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2(608.989, 324)
+scale = Vector2(0.208026, 0.208026)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform3"]
+position = Vector2(322.141, 3091.94)
+scale = Vector2(1.73058, 1)
+mesh = SubResource("QuadMesh_etef3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+position = Vector2(-1655.89, -458.981)
+shape = SubResource("RectangleShape2D_joarj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1000, 551)
+shape = SubResource("RectangleShape2D_wl6pu")
+
+[node name="Enemy_1" parent="." instance=ExtResource("3_mlglg")]
+position = Vector2(1256, 432)
