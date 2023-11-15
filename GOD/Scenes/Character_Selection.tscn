@@ -1,7 +1,5 @@
 [gd_scene load_steps=7 format=3 uid="uid://obii3sj8m1le"]
 
-[ext_resource type="Script" path="res://Character_Selection.gd" id="1_a7b8m"]
-[ext_resource type="Texture2D" uid="uid://db4jyx124anwg" path="res://1083.jpg" id="1_jlead"]
 [ext_resource type="Script" path="res://Scripts/Character_Selection.gd" id="1_8bv3v"]
 [ext_resource type="Texture2D" uid="uid://db4jyx124anwg" path="res://1083.jpg" id="2_30ujs"]
 [ext_resource type="PackedScene" uid="uid://1quu2n6s1xft" path="res://Resources/Scenes/UI/CharacterSelectionItem.tscn" id="3_7pipn"]
