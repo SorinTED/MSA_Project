@@ -66,6 +66,7 @@ layout_mode = 2
 text = " "
 
 [node name="Label" type="Label" parent="UI/MainMenuContainerBox/SelectCharacterButton"]
+layout_mode = 0
 offset_right = 2712.0
 offset_bottom = 624.0
 scale = Vector2(0.05, 0.05)
@@ -79,6 +80,7 @@ layout_mode = 2
 text = " "
 
 [node name="Label" type="Label" parent="UI/MainMenuContainerBox/AchievementsButton"]
+layout_mode = 0
 offset_right = 2712.0
 offset_bottom = 624.0
 scale = Vector2(0.05, 0.05)
@@ -93,6 +95,7 @@ text = "
 "
 
 [node name="Label" type="Label" parent="UI/MainMenuContainerBox/CodexButton"]
+layout_mode = 0
 offset_right = 2712.0
 offset_bottom = 624.0
 scale = Vector2(0.05, 0.05)
@@ -106,6 +109,7 @@ layout_mode = 2
 text = " "
 
 [node name="Label" type="Label" parent="UI/MainMenuContainerBox/ExitGameButton"]
+layout_mode = 0
 offset_right = 2712.0
 offset_bottom = 624.0
 scale = Vector2(0.05, 0.05)
