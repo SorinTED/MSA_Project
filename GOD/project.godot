@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="MSA"
-run/main_scene="res://Scenes/First.tscn"
+run/main_scene="res://Resources/Scenes/First.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameVariables="*res://game_variables.gd"
+GameVariables="*res://Resources/game_variables.gd"
 
 [display]
 
