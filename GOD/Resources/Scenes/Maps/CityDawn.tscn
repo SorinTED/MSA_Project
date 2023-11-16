@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://bbfrlb05o6mfx"]
 
 [ext_resource type="Script" path="res://Resources/Scripts/Maps/CityDawn.gd" id="1_dfk7t"]
-[ext_resource type="Texture2D" uid="uid://bkwcxuob4ldhr" path="res://Resources/Backgrounds/0.png" id="1_x1ojr"]
-[ext_resource type="Texture2D" uid="uid://iul18er3oibv" path="res://Resources/Sprites/CityTiles/Tiles.png" id="3_h1wc7"]
-[ext_resource type="Texture2D" uid="uid://d06vl6lqlyage" path="res://Resources/Sprites/CityTiles/Props-01.png" id="4_dbfrn"]
-[ext_resource type="Texture2D" uid="uid://b7yvdq30fcpeq" path="res://Resources/Sprites/CityTiles/Buildings.png" id="5_h8i7u"]
-[ext_resource type="PackedScene" uid="uid://baymei6y1va7t" path="res://Scenes/Player.tscn" id="6_pnif8"]
+[ext_resource type="Texture2D" uid="uid://bkwcxuob4ldhr" path="res://Resources/Sprites/Backgrounds/0.png" id="1_x1ojr"]
+[ext_resource type="Texture2D" uid="uid://iul18er3oibv" path="res://Resources/Sprites/Maps/CityTiles/Tiles.png" id="3_h1wc7"]
+[ext_resource type="Texture2D" uid="uid://d06vl6lqlyage" path="res://Resources/Sprites/Maps/CityTiles/Props-01.png" id="4_dbfrn"]
+[ext_resource type="Texture2D" uid="uid://b7yvdq30fcpeq" path="res://Resources/Sprites/Maps/CityTiles/Buildings.png" id="5_h8i7u"]
+[ext_resource type="PackedScene" uid="uid://baymei6y1va7t" path="res://Resources/Scenes/Entities/Playable/Player.tscn" id="6_pnif8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xd0a8"]
 texture = ExtResource("3_h1wc7")

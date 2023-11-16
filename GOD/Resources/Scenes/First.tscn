@@ -1,0 +1,128 @@
+[gd_scene load_steps=6 format=3 uid="uid://q51r3apcajxm"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/First.gd" id="1_kyjhm"]
+[ext_resource type="Texture2D" uid="uid://db4jyx124anwg" path="res://Resources/Sprites/Backgrounds/1083.jpg" id="2_8ctdp"]
+[ext_resource type="Texture2D" uid="uid://c4q1jsk4xkf6y" path="res://Resources/Sprites/Entities/Playable/amo-04.png" id="3_nq5mk"]
+[ext_resource type="Texture2D" uid="uid://b4r6oncsffc35" path="res://Resources/Sprites/UI/Menu/text-1699966913471.png" id="5_2ji68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7u77l"]
+size = Vector2(16, 16)
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_kyjhm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7u77l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="1083" type="Sprite2D" parent="."]
+position = Vector2(608.989, 324)
+scale = Vector2(0.208026, 0.208026)
+texture = ExtResource("2_8ctdp")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SelectedCharacterWrapper" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Amo-04" type="Sprite2D" parent="UI/SelectedCharacterWrapper"]
+position = Vector2(744, 376)
+scale = Vector2(0.0789474, 0.0789474)
+texture = ExtResource("3_nq5mk")
+
+[node name="MainMenuContainerBox" type="VBoxContainer" parent="UI"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 100.0
+offset_right = 260.0
+offset_bottom = 275.0
+scale = Vector2(2.5, 2.5)
+
+[node name="PlayButton" type="Button" parent="UI/MainMenuContainerBox"]
+layout_mode = 2
+size_flags_stretch_ratio = 11.51
+text = " "
+
+[node name="Label" type="Label" parent="UI/MainMenuContainerBox/PlayButton"]
+layout_mode = 0
+offset_right = 2712.0
+offset_bottom = 624.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 300
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectCharacterButton" type="Button" parent="UI/MainMenuContainerBox"]
+layout_mode = 2
+text = " "
+
+[node name="Label" type="Label" parent="UI/MainMenuContainerBox/SelectCharacterButton"]
+layout_mode = 0
+offset_right = 2712.0
+offset_bottom = 624.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 300
+text = "Select Character"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AchievementsButton" type="Button" parent="UI/MainMenuContainerBox"]
+layout_mode = 2
+text = " "
+
+[node name="Label" type="Label" parent="UI/MainMenuContainerBox/AchievementsButton"]
+layout_mode = 0
+offset_right = 2712.0
+offset_bottom = 624.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 300
+text = "Achievements"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CodexButton" type="Button" parent="UI/MainMenuContainerBox"]
+layout_mode = 2
+text = " 
+"
+
+[node name="Label" type="Label" parent="UI/MainMenuContainerBox/CodexButton"]
+layout_mode = 0
+offset_right = 2712.0
+offset_bottom = 624.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 300
+text = "Codex"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitGameButton" type="Button" parent="UI/MainMenuContainerBox"]
+layout_mode = 2
+text = " "
+
+[node name="Label" type="Label" parent="UI/MainMenuContainerBox/ExitGameButton"]
+layout_mode = 0
+offset_right = 2712.0
+offset_bottom = 624.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 300
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title" type="Sprite2D" parent="UI"]
+position = Vector2(650, 50)
+scale = Vector2(1.1, 1)
+texture = ExtResource("5_2ji68")
+
+[connection signal="pressed" from="UI/MainMenuContainerBox/PlayButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="UI/MainMenuContainerBox/SelectCharacterButton" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="UI/MainMenuContainerBox/ExitGameButton" to="." method="_on_button_3_pressed"]
