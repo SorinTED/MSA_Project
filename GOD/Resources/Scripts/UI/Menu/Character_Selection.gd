@@ -10,10 +10,10 @@ var character_image;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	character_container = get_node("UI/CharacterPannel");
-	character_name = get_node("UI/CharacterPannel/CharacterContainer/CharacterTextMargin/CharacterText/CharacterName");
-	character_description = get_node("UI/CharacterPannel/CharacterContainer/CharacterTextMargin/CharacterText/CharacterDescription");
-	character_image = get_node("UI/CharacterPannel/CharacterContainer/CharacterImage");
+	character_container = get_node("UI/UIContainer/PanelContainer/SelectorContainer/CharacterPannel");
+	character_name = get_node("UI/UIContainer/PanelContainer/SelectorContainer/CharacterPannel/CharacterContainer/CharacterTextMargin/CharacterText/CharacterName");
+	character_description = get_node("UI/UIContainer/PanelContainer/SelectorContainer/CharacterPannel/CharacterContainer/CharacterTextMargin/CharacterText/CharacterDescription");
+	character_image = get_node("UI/UIContainer/PanelContainer/SelectorContainer/CharacterPannel/CharacterContainer/CharacterImage");
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

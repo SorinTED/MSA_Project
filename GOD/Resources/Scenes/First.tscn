@@ -100,7 +100,7 @@ offset_right = 2712.0
 offset_bottom = 624.0
 scale = Vector2(0.05, 0.05)
 theme_override_font_sizes/font_size = 300
-text = "Codex"
+text = "Archive"
 horizontal_alignment = 1
 vertical_alignment = 1
 

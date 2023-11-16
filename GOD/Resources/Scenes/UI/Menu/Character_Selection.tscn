@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://obii3sj8m1le"]
+[gd_scene load_steps=10 format=3 uid="uid://obii3sj8m1le"]
 
 [ext_resource type="Script" path="res://Resources/Scripts/UI/Menu/Character_Selection.gd" id="1_8bv3v"]
 [ext_resource type="Texture2D" uid="uid://db4jyx124anwg" path="res://Resources/Sprites/Backgrounds/1083.jpg" id="2_30ujs"]
@@ -8,6 +8,14 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dk88c"]
 size = Vector2(16, 16)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u6g7f"]
+content_margin_top = 60.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7h3fg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o8wkl"]
+content_margin_top = 100.0
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_8bv3v")
@@ -22,112 +30,122 @@ position = Vector2(608.989, 324)
 scale = Vector2(0.208026, 0.208026)
 texture = ExtResource("2_30ujs")
 
-[node name="MenuButton" type="MenuButton" parent="."]
-offset_left = 35.0
-offset_top = -86.0
-offset_right = 291.0
-offset_bottom = -22.0
-text = "Character 1"
-
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1152.0
+offset_bottom = 648.0
 
-[node name="CharacterSelectionBar" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/CharacterSelectionBar"]
+[node name="UIContainer" type="VBoxContainer" parent="UI"]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 60.0
-offset_right = 120.0
-offset_bottom = 131.0
-theme_override_constants/separation = 115
+offset_right = 1154.0
+offset_bottom = 648.0
+theme_override_constants/separation = 50
 
-[node name="CharacterSelectionItem" parent="UI/CharacterSelectionBar/VBoxContainer" instance=ExtResource("3_7pipn")]
+[node name="PanelContainer" type="PanelContainer" parent="UI/UIContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_u6g7f")
+
+[node name="SelectorContainer" type="HBoxContainer" parent="UI/UIContainer/PanelContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+alignment = 1
+
+[node name="CharacterSelectionPannel" type="PanelContainer" parent="UI/UIContainer/PanelContainer/SelectorContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7h3fg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/UIContainer/PanelContainer/SelectorContainer/CharacterSelectionPannel"]
+layout_mode = 2
+theme_override_constants/separation = 117
+
+[node name="CharacterSelectionItem" parent="UI/UIContainer/PanelContainer/SelectorContainer/CharacterSelectionPannel/VBoxContainer" instance=ExtResource("3_7pipn")]
 layout_mode = 2
 
-[node name="Label" parent="UI/CharacterSelectionBar/VBoxContainer/CharacterSelectionItem/Button/HBoxContainer" index="1"]
+[node name="Label" parent="UI/UIContainer/PanelContainer/SelectorContainer/CharacterSelectionPannel/VBoxContainer/CharacterSelectionItem/Button/HBoxContainer" index="1"]
 text = "Sussy Red"
 
-[node name="CharacterSelectionItem2" parent="UI/CharacterSelectionBar/VBoxContainer" instance=ExtResource("3_7pipn")]
+[node name="CharacterSelectionItem2" parent="UI/UIContainer/PanelContainer/SelectorContainer/CharacterSelectionPannel/VBoxContainer" instance=ExtResource("3_7pipn")]
 layout_mode = 2
 
-[node name="TextureRect" parent="UI/CharacterSelectionBar/VBoxContainer/CharacterSelectionItem2/Button/HBoxContainer" index="0"]
+[node name="TextureRect" parent="UI/UIContainer/PanelContainer/SelectorContainer/CharacterSelectionPannel/VBoxContainer/CharacterSelectionItem2/Button/HBoxContainer" index="0"]
 texture = ExtResource("4_2bccg")
 
-[node name="Label" parent="UI/CharacterSelectionBar/VBoxContainer/CharacterSelectionItem2/Button/HBoxContainer" index="1"]
+[node name="Label" parent="UI/UIContainer/PanelContainer/SelectorContainer/CharacterSelectionPannel/VBoxContainer/CharacterSelectionItem2/Button/HBoxContainer" index="1"]
 text = "Crew Yellow"
 
-[node name="BottomButtonsContainer" type="HBoxContainer" parent="UI"]
-layout_mode = 0
-offset_left = 500.0
-offset_top = 550.0
-offset_right = 620.0
-offset_bottom = 581.0
-scale = Vector2(2, 2)
-theme_override_constants/separation = 20
-
-[node name="Button" type="Button" parent="UI/BottomButtonsContainer"]
+[node name="CharacterSelectionItem3" parent="UI/UIContainer/PanelContainer/SelectorContainer/CharacterSelectionPannel/VBoxContainer" instance=ExtResource("3_7pipn")]
 layout_mode = 2
-text = "Back"
 
-[node name="Button2" type="Button" parent="UI/BottomButtonsContainer"]
+[node name="CharacterSelectionItem4" parent="UI/UIContainer/PanelContainer/SelectorContainer/CharacterSelectionPannel/VBoxContainer" instance=ExtResource("3_7pipn")]
 layout_mode = 2
-text = "Confirm"
 
-[node name="CharacterPannel" type="PanelContainer" parent="UI"]
-layout_mode = 0
-offset_left = 380.0
-offset_top = 60.0
-offset_right = 1089.0
-offset_bottom = 410.0
+[node name="CharacterPannel" type="PanelContainer" parent="UI/UIContainer/PanelContainer/SelectorContainer"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
 
-[node name="CharacterContainer" type="HBoxContainer" parent="UI/CharacterPannel"]
+[node name="CharacterContainer" type="HBoxContainer" parent="UI/UIContainer/PanelContainer/SelectorContainer/CharacterPannel"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme_override_constants/separation = -1
 
-[node name="CharacterTextMargin" type="MarginContainer" parent="UI/CharacterPannel/CharacterContainer"]
+[node name="CharacterTextMargin" type="MarginContainer" parent="UI/UIContainer/PanelContainer/SelectorContainer/CharacterPannel/CharacterContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 
-[node name="CharacterText" type="VBoxContainer" parent="UI/CharacterPannel/CharacterContainer/CharacterTextMargin"]
+[node name="CharacterText" type="VBoxContainer" parent="UI/UIContainer/PanelContainer/SelectorContainer/CharacterPannel/CharacterContainer/CharacterTextMargin"]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="CharacterName" type="Label" parent="UI/CharacterPannel/CharacterContainer/CharacterTextMargin/CharacterText"]
+[node name="CharacterName" type="Label" parent="UI/UIContainer/PanelContainer/SelectorContainer/CharacterPannel/CharacterContainer/CharacterTextMargin/CharacterText"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Sussy Red"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="UI/CharacterPannel/CharacterContainer/CharacterTextMargin/CharacterText"]
+[node name="HSeparator" type="HSeparator" parent="UI/UIContainer/PanelContainer/SelectorContainer/CharacterPannel/CharacterContainer/CharacterTextMargin/CharacterText"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="CharacterDescription" type="RichTextLabel" parent="UI/CharacterPannel/CharacterContainer/CharacterTextMargin/CharacterText"]
+[node name="CharacterDescription" type="RichTextLabel" parent="UI/UIContainer/PanelContainer/SelectorContainer/CharacterPannel/CharacterContainer/CharacterTextMargin/CharacterText"]
 layout_mode = 2
 text = "	The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. 
 
 	Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham."
 fit_content = true
 
-[node name="CharacterImage" type="TextureRect" parent="UI/CharacterPannel/CharacterContainer"]
+[node name="CharacterImage" type="TextureRect" parent="UI/UIContainer/PanelContainer/SelectorContainer/CharacterPannel/CharacterContainer"]
 layout_mode = 2
 texture = ExtResource("5_neabp")
 expand_mode = 2
 
-[connection signal="pressed" from="UI/CharacterSelectionBar/VBoxContainer/CharacterSelectionItem/Button" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="UI/CharacterSelectionBar/VBoxContainer/CharacterSelectionItem2/Button" to="." method="_on_button_4_pressed"]
-[connection signal="pressed" from="UI/BottomButtonsContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="UI/BottomButtonsContainer/Button2" to="." method="_on_button_2_pressed"]
+[node name="PanelContainer2" type="PanelContainer" parent="UI/UIContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_o8wkl")
 
-[editable path="UI/CharacterSelectionBar/VBoxContainer/CharacterSelectionItem"]
-[editable path="UI/CharacterSelectionBar/VBoxContainer/CharacterSelectionItem2"]
+[node name="BottomButtonsContainer" type="HBoxContainer" parent="UI/UIContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Button" type="Button" parent="UI/UIContainer/PanelContainer2/BottomButtonsContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+text = "Back"
+
+[node name="Button2" type="Button" parent="UI/UIContainer/PanelContainer2/BottomButtonsContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+text = "Confirm"
+
+[connection signal="pressed" from="UI/UIContainer/PanelContainer/SelectorContainer/CharacterSelectionPannel/VBoxContainer/CharacterSelectionItem/Button" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="UI/UIContainer/PanelContainer/SelectorContainer/CharacterSelectionPannel/VBoxContainer/CharacterSelectionItem2/Button" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="UI/UIContainer/PanelContainer2/BottomButtonsContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="UI/UIContainer/PanelContainer2/BottomButtonsContainer/Button2" to="." method="_on_button_2_pressed"]
+
+[editable path="UI/UIContainer/PanelContainer/SelectorContainer/CharacterSelectionPannel/VBoxContainer/CharacterSelectionItem"]
+[editable path="UI/UIContainer/PanelContainer/SelectorContainer/CharacterSelectionPannel/VBoxContainer/CharacterSelectionItem2"]
