@@ -601,7 +601,6 @@ sources/0 = SubResource("TileSetAtlasSource_xy84s")
 
 [node name="CityDawnMap" type="Node2D"]
 script = ExtResource("1_dfk7t")
-PlayerScene = ExtResource("6_pnif8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
@@ -652,6 +651,9 @@ layer_0/tile_data = PackedInt32Array(1245203, 327680, 7, 1245204, 393216, 7, 111
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("8_c4yad")]
 position = Vector2(40, 113)
+
+[node name="Player" parent="." instance=ExtResource("6_pnif8")]
+position = Vector2(889, 153)
 
 [node name="SpawnLocations" type="Node2D" parent="."]
 

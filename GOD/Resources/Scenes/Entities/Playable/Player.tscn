@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://baymei6y1va7t"]
+[gd_scene load_steps=8 format=3 uid="uid://baymei6y1va7t"]
 
 [ext_resource type="Script" path="res://Resources/Scripts/Entities/Playable/Player.gd" id="1_kc2q4"]
 [ext_resource type="Texture2D" uid="uid://c4q1jsk4xkf6y" path="res://Resources/Sprites/Entities/Playable/amo-04.png" id="1_mw2ig"]
@@ -20,6 +20,16 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_arjxw"]
 radius = 29.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_v6f45"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:visible")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(30, -4)
@@ -53,3 +63,6 @@ offset_left = -148.0
 offset_top = -117.0
 offset_right = -148.0
 offset_bottom = -117.0
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_v6f45")
