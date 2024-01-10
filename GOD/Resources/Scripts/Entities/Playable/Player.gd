@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var PowerUp = $PowerUps
+@onready var PowerUp = $PowerUp
 #Health Bar
 var Total_HP = 100
 var Current_HP = 0

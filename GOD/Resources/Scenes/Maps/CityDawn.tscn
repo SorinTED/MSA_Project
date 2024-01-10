@@ -654,8 +654,5 @@ position = Vector2(40, 113)
 
 [node name="Player" parent="." instance=ExtResource("6_pnif8")]
 position = Vector2(889, 153)
-SPEED = 400.0
-JUMP_VELOCITY = -600
-attacking = false
 
 [connection signal="pressed" from="UI/ReturnToMapButton" to="." method="_on_button_pressed"]

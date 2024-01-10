@@ -766,7 +766,7 @@ offset_bottom = 144.0
 scale = Vector2(5, 5)
 metadata/_edit_use_anchors_ = true
 
-[node name="Player" parent="Camera2D" instance=ExtResource("5_jwrlk")]
+[node name="Player" parent="." instance=ExtResource("5_jwrlk")]
 position = Vector2(1087, 226)
 
 [node name="TileMap" type="TileMap" parent="."]
