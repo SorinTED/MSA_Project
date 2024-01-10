@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbfrlb05o6mfx"]
+[gd_scene load_steps=15 format=3 uid="uid://bbfrlb05o6mfx"]
 
 [ext_resource type="Script" path="res://Resources/Scripts/Maps/CityDawn.gd" id="1_dfk7t"]
 [ext_resource type="Texture2D" uid="uid://bkwcxuob4ldhr" path="res://Resources/Sprites/Backgrounds/0.png" id="1_x1ojr"]
 [ext_resource type="Texture2D" uid="uid://iul18er3oibv" path="res://Resources/Sprites/Maps/CityTiles/Tiles.png" id="3_h1wc7"]
+[ext_resource type="Script" path="res://Resources/Scenes/Maps/ProgressBar.gd" id="3_hfhtc"]
 [ext_resource type="Texture2D" uid="uid://d06vl6lqlyage" path="res://Resources/Sprites/Maps/CityTiles/Props-01.png" id="4_dbfrn"]
 [ext_resource type="Texture2D" uid="uid://b7yvdq30fcpeq" path="res://Resources/Sprites/Maps/CityTiles/Buildings.png" id="5_h8i7u"]
 [ext_resource type="PackedScene" uid="uid://baymei6y1va7t" path="res://Resources/Scenes/Entities/Playable/Player.tscn" id="6_pnif8"]
+[ext_resource type="PackedScene" uid="uid://bx7bohr6kor72" path="res://Resources/Scenes/Entities/Enemies/Enemy_1.tscn" id="8_c4yad"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xd0a8"]
 texture = ExtResource("3_h1wc7")
@@ -619,6 +621,14 @@ offset_right = 1133.0
 offset_bottom = 79.0
 text = "Back"
 
+[node name="ProgressBar" type="ProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 32.0
+offset_right = 676.0
+offset_bottom = 59.0
+script = ExtResource("3_hfhtc")
+
 [node name="TileMaps" type="Node2D" parent="."]
 
 [node name="PlatformTilemap" type="TileMap" parent="TileMaps"]
@@ -639,8 +649,13 @@ tile_set = SubResource("TileSet_1xbm7")
 format = 2
 layer_0/tile_data = PackedInt32Array(1245203, 327680, 7, 1245204, 393216, 7, 1114126, 327680, 7, 1114127, 393216, 7, 1245194, 1048576, 4, 1310730, 917504, 5, 1114113, 196608, 1, 1179649, 196608, 2, 1245185, 196608, 3, 1114114, 262144, 1, 1179650, 262144, 2, 1245186, 262144, 3, 1114112, 131072, 1, 1179648, 131072, 2, 1245184, 131072, 3, 1310720, 131072, 3, 1310721, 196608, 3, 1310722, 262144, 3, 1114143, 327680, 7, 1114144, 458752, 11, 1048608, 458752, 10, 983072, 458752, 10, 917536, 458752, 10, 852000, 458752, 7, 524301, 458752, 7, 589837, 327680, 10, 655373, 327680, 10, 720909, 327680, 10, 786445, 327680, 10, 851981, 327680, 11, 851982, 393216, 9, 851983, 393216, 7, 852001, 393216, 0, 917537, 393216, 1, 983073, 393216, 2, 1048609, 393216, 3, 852002, 458752, 0, 917538, 458752, 1, 983074, 458752, 2, 1048610, 458752, 3, 852003, 524288, 0, 917539, 589824, 0, 983075, 589824, 1, 1048611, 589824, 2, 1114145, 393216, 3, 1114146, 458752, 3, 1114147, 524288, 3, 1179681, 393216, 3, 1179682, 458752, 3, 1179683, 524288, 3, 917540, 655360, 0, 983076, 655360, 1, 1048612, 655360, 2)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("6_pnif8")]
-position = Vector2(778, 285)
-scale = Vector2(0.125, 0.125)
+[node name="CharacterBody2D2" parent="." instance=ExtResource("8_c4yad")]
+position = Vector2(40, 113)
+
+[node name="Player" parent="." instance=ExtResource("6_pnif8")]
+position = Vector2(889, 153)
+SPEED = 400.0
+JUMP_VELOCITY = -600
+attacking = false
 
 [connection signal="pressed" from="UI/ReturnToMapButton" to="." method="_on_button_pressed"]

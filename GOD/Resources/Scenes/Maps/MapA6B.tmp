@@ -46,6 +46,8 @@ shape = SubResource("RectangleShape2D_ju01c")
 [node name="Player" parent="." instance=ExtResource("2_x6uga")]
 position = Vector2(751, 486)
 scale = Vector2(0.208026, 0.208026)
+SPEED = 400.0
+JUMP_VELOCITY = -600
 
 [node name="Platform2" type="StaticBody2D" parent="."]
 position = Vector2(608.989, 324)

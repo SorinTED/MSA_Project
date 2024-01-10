@@ -1,17 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://bx7bohr6kor72"]
+[gd_scene load_steps=6 format=3 uid="uid://bx7bohr6kor72"]
 
 [ext_resource type="Texture2D" uid="uid://myjvggbq0fxy" path="res://Resources/Sprites/Entities/Enemies/image-from-rawpixel-id-6479670-original.png" id="1_5kra7"]
+[ext_resource type="Script" path="res://Resources/Scenes/Entities/Enemies/Enemy_1.gd" id="1_gbs46"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4iqcc"]
+radius = 613.236
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bnlnh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5kra7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6v8ht"]
-size = Vector2(40, 128)
+size = Vector2(111, 141)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Enemy_1" type="CharacterBody2D"]
+position = Vector2(-19, 16)
+script = ExtResource("1_gbs46")
+
+[node name="Detection_Area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_Area"]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_4iqcc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, -15)
+scale = Vector2(0.0397045, 0.0345441)
+sprite_frames = SubResource("SpriteFrames_bnlnh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 0)
+position = Vector2(3, -22)
 shape = SubResource("RectangleShape2D_6v8ht")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -16)
-scale = Vector2(0.0449944, 0.0449944)
-texture = ExtResource("1_5kra7")
+[connection signal="body_entered" from="Detection_Area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="Detection_Area" to="." method="_on_detection_area_body_exited"]
