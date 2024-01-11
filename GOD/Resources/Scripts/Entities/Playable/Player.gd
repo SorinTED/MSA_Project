@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 @onready var PowerUp = $PowerUp
 #Health Bar
 var Total_HP = 100
@@ -25,6 +25,8 @@ var Defense = 0
 
 @export var attacking = false
 @export var upgrade_paused = false
+
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -82,11 +84,11 @@ func attack():
 	var overlapping_objects = $Attack_Range.get_overlapping_areas()
 	
 	for area in overlapping_objects:
-		var parent = area.get_parent()
-		#parent.take_damage()
-		parent.queue_free()
-	pass
-
+		if area.get_parent().is_in_group("Enemy"):
+			var parent = area.get_parent()
+			#parent.take_damage()
+			parent.queue_free()
+			
 func take_damage(damage:int):
 	pass
 	
@@ -108,3 +110,4 @@ func powerUp():
 	Current_HP += 10
 
 	upgrade_paused = !upgrade_paused
+

@@ -1,25 +1,42 @@
-[gd_scene load_steps=7 format=3 uid="uid://baymei6y1va7t"]
+[gd_scene load_steps=11 format=3 uid="uid://baymei6y1va7t"]
 
 [ext_resource type="Script" path="res://Resources/Scripts/Entities/Playable/Player.gd" id="1_kc2q4"]
 [ext_resource type="Texture2D" uid="uid://c4q1jsk4xkf6y" path="res://Resources/Sprites/Entities/Playable/amo-04.png" id="1_mw2ig"]
 [ext_resource type="PackedScene" uid="uid://cgfwnd4doemmm" path="res://Resources/Scenes/UI/Gameplay/PowerUp.tscn" id="3_nox66"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ct85s"]
-size = Vector2(26.5, 39)
+[ext_resource type="Texture2D" uid="uid://crk0bvrmioe56" path="res://Resources/Sprites/Entities/Playable/hit-04.png" id="3_v2f04"]
+[ext_resource type="Texture2D" uid="uid://dc74cvbvdev2s" path="res://Resources/Sprites/Entities/Playable/hit-05.png" id="4_w6chu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6jmk0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_mw2ig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_v2f04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w6chu")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_qc2jp"]
+resource_name = "Hit"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f3i12"]
+_data = {
+"Hit": SubResource("Animation_qc2jp")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_arjxw"]
 radius = 29.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kjbww"]
+radius = 12.0
+height = 44.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(30, -4)
@@ -27,23 +44,23 @@ collision_layer = 3
 safe_margin = 12.27
 script = ExtResource("1_kc2q4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-11, -29)
-shape = SubResource("RectangleShape2D_ct85s")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-14.0002, -25)
+position = Vector2(-14, -29)
 scale = Vector2(0.014671, 0.014671)
 sprite_frames = SubResource("SpriteFrames_6jmk0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f3i12")
+}
 
 [node name="Attack_Range" type="Area2D" parent="."]
 position = Vector2(-35, -30)
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Range"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Range" groups=["Player"]]
 position = Vector2(-18, 0)
+scale = Vector2(1.00775, 1.0377)
 shape = SubResource("CircleShape2D_arjxw")
 one_way_collision_margin = 0.0
 
@@ -53,3 +70,10 @@ offset_left = -148.0
 offset_top = -117.0
 offset_right = -148.0
 offset_bottom = -117.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, -31)
+scale = Vector2(2.08724, 1.20786)
+shape = SubResource("CapsuleShape2D_kjbww")
+
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]

@@ -1,0 +1,118 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxnr3v4kr2du1"]
+
+[ext_resource type="Texture2D" uid="uid://cftrm5r3cnrkh" path="res://Resources/Sprites/Entities/Enemies/Minotaur/Minotaur - Sprite Sheet.png" id="1_7dut8"]
+[ext_resource type="Script" path="res://Resources/Scripts/Entities/Enemies/Minotaur/Minotaur.gd" id="1_avcrt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujnt4"]
+size = Vector2(37, 39)
+
+[sub_resource type="Animation" id="Animation_2s6qd"]
+resource_name = "Idle"
+length = 0.65
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_8uuhc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6rmpl"]
+resource_name = "Chase"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13, 14, 15, 16]
+}
+
+[sub_resource type="Animation" id="Animation_od8vo"]
+resource_name = "Attack"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 40]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4pskd"]
+_data = {
+"Attack": SubResource("Animation_od8vo"),
+"Chase": SubResource("Animation_6rmpl"),
+"Idle": SubResource("Animation_2s6qd"),
+"RESET": SubResource("Animation_8uuhc")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4qo6"]
+size = Vector2(28, 41)
+
+[node name="Node2D" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 2
+script = ExtResource("1_avcrt")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -9.5)
+shape = SubResource("RectangleShape2D_ujnt4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_7dut8")
+hframes = 9
+vframes = 20
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4pskd")
+}
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(10, -27)
+target_position = Vector2(12, 22)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(13, 13)
+target_position = Vector2(1, 12)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -6.5)
+shape = SubResource("RectangleShape2D_m4qo6")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

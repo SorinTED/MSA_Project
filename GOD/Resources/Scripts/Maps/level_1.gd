@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var level_1 = $"."
-@onready var pause_menu = $Camera2D/PauseMenu
+@onready var pause_menu = $Player/Camera2D/PauseMenu
 
 var paused = false
 
