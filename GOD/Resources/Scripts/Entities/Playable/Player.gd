@@ -47,6 +47,9 @@ func chestUP():
 	Defense +=1
 	Torso_PowerUps +=1
 
+func _ready():
+	$AnimationPlayer.play("stas")
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -59,10 +62,14 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 	# Handle Direction of player
 	var direction = Input.get_axis("move_left", "move_right")
-	if direction == 1:
-		$AnimatedSprite2D.flip_h = true
-	elif direction == -1:
-		$AnimatedSprite2D.flip_h = false
+	
+	if Input.is_action_just_pressed("move_left"):
+		$Sprite2D.scale.x = abs($Sprite2D.scale.x)
+		$Attack_Range.scale.x = abs($Attack_Range.scale.x)
+
+	if Input.is_action_just_pressed("move_right"):
+		$Sprite2D.scale.x = abs($Sprite2D.scale.x) * -1
+		$Attack_Range.scale.x = abs($Attack_Range.scale.x) * -1
 		
 	if direction:
 		velocity.x = direction * SPEED
@@ -82,13 +89,13 @@ func attack():
 	attacking = true
 	#insert attack animation
 	var overlapping_objects = $Attack_Range.get_overlapping_areas()
-	
+	$AnimationPlayer.play("Hit")
 	for area in overlapping_objects:
 		if area.get_parent().is_in_group("Enemy"):
 			var parent = area.get_parent()
 			#parent.take_damage()
 			parent.queue_free()
-			
+	
 func take_damage(damage:int):
 	pass
 	

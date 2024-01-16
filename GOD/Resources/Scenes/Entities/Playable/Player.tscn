@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://baymei6y1va7t"]
+[gd_scene load_steps=15 format=3 uid="uid://baymei6y1va7t"]
 
 [ext_resource type="Script" path="res://Resources/Scripts/Entities/Playable/Player.gd" id="1_kc2q4"]
 [ext_resource type="Texture2D" uid="uid://c4q1jsk4xkf6y" path="res://Resources/Sprites/Entities/Playable/amo-04.png" id="1_mw2ig"]
+[ext_resource type="Texture2D" uid="uid://u7qx25s71dh1" path="res://Resources/Sprites/Entities/Playable/MSA-04-04.png" id="2_yqp01"]
 [ext_resource type="PackedScene" uid="uid://cgfwnd4doemmm" path="res://Resources/Scenes/UI/Gameplay/PowerUp.tscn" id="3_nox66"]
 [ext_resource type="Texture2D" uid="uid://crk0bvrmioe56" path="res://Resources/Sprites/Entities/Playable/hit-04.png" id="3_v2f04"]
 [ext_resource type="Texture2D" uid="uid://dc74cvbvdev2s" path="res://Resources/Sprites/Entities/Playable/hit-05.png" id="4_w6chu"]
@@ -25,27 +26,90 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_qc2jp"]
 resource_name = "Hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 2, 0, 1, 4, 3, 4, 2]
+}
+
+[sub_resource type="Animation" id="Animation_p0buc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_y5ka2"]
+resource_name = "stas"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 2, 0, 1]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f3i12"]
 _data = {
-"Hit": SubResource("Animation_qc2jp")
+"Hit": SubResource("Animation_qc2jp"),
+"RESET": SubResource("Animation_p0buc"),
+"stas": SubResource("Animation_y5ka2")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_arjxw"]
-radius = 29.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0slj"]
+size = Vector2(61.027, 51.0745)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kjbww"]
 radius = 12.0
 height = 44.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4q0y"]
+radius = 25.0
+height = 54.0
+
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(30, -4)
-collision_layer = 3
-safe_margin = 12.27
+collision_layer = 2
+safe_margin = 0.001
 script = ExtResource("1_kc2q4")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -26)
+scale = Vector2(0.0125, 0.0125)
+texture = ExtResource("2_yqp01")
+hframes = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(0, -26)
+scale = Vector2(0.0125, 0.0125)
+texture = ExtResource("2_yqp01")
+hframes = 5
+frame = 4
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-14, -29)
+visible = false
+position = Vector2(0, -25)
 scale = Vector2(0.014671, 0.014671)
 sprite_frames = SubResource("SpriteFrames_6jmk0")
 
@@ -55,13 +119,13 @@ libraries = {
 }
 
 [node name="Attack_Range" type="Area2D" parent="."]
-position = Vector2(-35, -30)
+position = Vector2(0, -26)
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Range" groups=["Player"]]
-position = Vector2(-18, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Range"]
+position = Vector2(-42.75, -1)
 scale = Vector2(1.00775, 1.0377)
-shape = SubResource("CircleShape2D_arjxw")
+shape = SubResource("RectangleShape2D_g0slj")
 one_way_collision_margin = 0.0
 
 [node name="PowerUp" parent="." instance=ExtResource("3_nox66")]
@@ -71,9 +135,17 @@ offset_top = -117.0
 offset_right = -148.0
 offset_bottom = -117.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10, -31)
-scale = Vector2(2.08724, 1.20786)
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-3.8147e-06, -26)
+scale = Vector2(1.00775, 1.0377)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7.62939e-06, 0)
+scale = Vector2(2.07119, 1.16398)
 shape = SubResource("CapsuleShape2D_kjbww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -26)
+shape = SubResource("CapsuleShape2D_r4q0y")
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]

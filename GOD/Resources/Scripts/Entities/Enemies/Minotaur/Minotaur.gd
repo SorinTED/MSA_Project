@@ -39,3 +39,5 @@ func _on_area_2d_area_entered(area):
 		print("i touched you")
 		$AnimationPlayer.play("Attack")
 		#$AnimationPlayer.play("Chase")
+	else:
+		$AnimationPlayer.play("Chase")

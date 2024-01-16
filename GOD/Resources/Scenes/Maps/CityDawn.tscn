@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bbfrlb05o6mfx"]
+[gd_scene load_steps=16 format=3 uid="uid://bbfrlb05o6mfx"]
 
 [ext_resource type="Script" path="res://Resources/Scripts/Maps/CityDawn.gd" id="1_dfk7t"]
 [ext_resource type="Texture2D" uid="uid://bkwcxuob4ldhr" path="res://Resources/Sprites/Backgrounds/0.png" id="1_x1ojr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b7yvdq30fcpeq" path="res://Resources/Sprites/Maps/CityTiles/Buildings.png" id="5_h8i7u"]
 [ext_resource type="PackedScene" uid="uid://baymei6y1va7t" path="res://Resources/Scenes/Entities/Playable/Player.tscn" id="6_pnif8"]
 [ext_resource type="PackedScene" uid="uid://bx7bohr6kor72" path="res://Resources/Scenes/Entities/Enemies/Enemy_1.tscn" id="8_c4yad"]
+[ext_resource type="PackedScene" uid="uid://ln4vlyhfocej" path="res://Resources/Scenes/UI/Gameplay/pause_menu.tscn" id="9_fxtc6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xd0a8"]
 texture = ExtResource("3_h1wc7")
@@ -654,5 +655,7 @@ position = Vector2(40, 113)
 
 [node name="Player" parent="." instance=ExtResource("6_pnif8")]
 position = Vector2(889, 153)
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_fxtc6")]
 
 [connection signal="pressed" from="UI/ReturnToMapButton" to="." method="_on_button_pressed"]
