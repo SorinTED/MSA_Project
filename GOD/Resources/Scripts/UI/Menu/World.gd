@@ -17,11 +17,13 @@ func _on_button_pressed()->void:
 
 
 func _on_button1_pressed()->void:
-	get_tree().change_scene_to_file("res://Resources/Scenes/Maps/CityDawn.tscn");
+	GameVariables.ChosenMap = "res://Resources/Scenes/Maps/CityDawn.tscn";
+	get_tree().change_scene_to_file("res://Resources/multiplayerScene.tscn");
 
 
 func _on_button2_pressed()->void:
-	get_tree().change_scene_to_file("res://Resources/Scenes/Maps/level_1.tscn");
+	GameVariables.ChosenMap = "res://Resources/Scenes/Maps/level_1.tscn";
+	get_tree().change_scene_to_file("res://Resources/multiplayerScene.tscn");
 
 
 func _on_button3_pressed()->void:

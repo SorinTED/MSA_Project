@@ -89,6 +89,16 @@ height = 44.0
 radius = 25.0
 height = 54.0
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_v6f45"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:visible")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 safe_margin = 0.001
@@ -149,3 +159,5 @@ position = Vector2(0, -26)
 shape = SubResource("CapsuleShape2D_r4q0y")
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_v6f45")
