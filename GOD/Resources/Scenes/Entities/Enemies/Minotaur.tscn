@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxnr3v4kr2du1"]
+[gd_scene load_steps=10 format=3 uid="uid://bnypgo46emgos"]
 
 [ext_resource type="Texture2D" uid="uid://cftrm5r3cnrkh" path="res://Resources/Sprites/Entities/Enemies/Minotaur/Minotaur - Sprite Sheet.png" id="1_7dut8"]
 [ext_resource type="Script" path="res://Resources/Scripts/Entities/Enemies/Minotaur/Minotaur.gd" id="1_avcrt"]

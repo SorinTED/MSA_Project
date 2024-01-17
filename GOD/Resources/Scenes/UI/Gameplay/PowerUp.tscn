@@ -23,13 +23,19 @@ layout_mode = 2
 layout_mode = 2
 text = "Arms Day"
 
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/BoxContainer/Arms"]
+
 [node name="Legs" type="Button" parent="MarginContainer/BoxContainer"]
 layout_mode = 2
 text = "Legs Day"
 
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/BoxContainer/Legs"]
+
 [node name="Chest" type="Button" parent="MarginContainer/BoxContainer"]
 layout_mode = 2
 text = "Chest/Back Day"
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/BoxContainer/Chest"]
 
 [connection signal="pressed" from="MarginContainer/BoxContainer/Arms" to="." method="_on_arms_pressed"]
 [connection signal="pressed" from="MarginContainer/BoxContainer/Legs" to="." method="_on_legs_pressed"]

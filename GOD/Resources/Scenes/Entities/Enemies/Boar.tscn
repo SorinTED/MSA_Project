@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://it30840yokjv"]
+[gd_scene load_steps=8 format=3 uid="uid://ghbjl6s56570"]
 
 [ext_resource type="Script" path="res://Resources/Scripts/Entities/Enemies/Boar/Boar.gd" id="1_ofove"]
 [ext_resource type="Texture2D" uid="uid://dtghlvjmu3byk" path="res://Resources/Sprites/Entities/Enemies/Boar/Idle/Idle-Sheet-export-Back.png" id="2_h2u0o"]
